@@ -1,4 +1,4 @@
 module.exports = {
   Money: "0",
-  EmbedColor: "Red"
+  EmbedColor: "#9269ff"
 }
