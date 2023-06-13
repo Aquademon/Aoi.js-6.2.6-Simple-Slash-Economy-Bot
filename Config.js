@@ -8,5 +8,6 @@ module.exports = {
     Type: "PLAYING",
     Status: "idle",
     Time: 12,
+    MobilePlatform: false,
     }
 }
