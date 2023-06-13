@@ -1,4 +1,4 @@
-# Aoi.js 6.2.6 simple economy bot
+# Aoi.js 6.2.6 simple slash economy bot
 
 **📦 | How do I install the necessary packages for the bot?**
 Go to terminal and type `npm i`
