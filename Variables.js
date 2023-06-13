@@ -1,3 +1,4 @@
 module.exports = {
-  Money: "0"
+  Money: "0",
+  EmbedColor: "Red"
 }
