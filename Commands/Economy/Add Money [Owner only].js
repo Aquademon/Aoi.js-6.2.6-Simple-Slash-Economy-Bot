@@ -3,7 +3,7 @@ module.exports = {
   prototype: 'slash',
   name: "add-money",
   code: `
-  $setGlobalUserVar[Money;$sum[$getGlobalUserVar[Money;$authorID];$slashOption[money]];$authorID]
+  $setGlobalUserVar[Money;$sum[$getGlobalUserVar[Money;$slashOption[member]];$slashOption[money]];$slashOption[member]]
   $interactionReply[;{newEmbed:
   {author:$userTag:$userAvatar}
   {title:Added}
