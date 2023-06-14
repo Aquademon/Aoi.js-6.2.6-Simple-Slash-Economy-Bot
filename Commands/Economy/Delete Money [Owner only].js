@@ -12,5 +12,5 @@ module.exports = {
   {footer:Owner only commands}
   {timestamp}
   ;;;all;true]
-  $onlyForIDs[$clientOwnerIDs;**❌ | You have not authorized to run this command.**]
+  $onlyForIDs[$clientOwnerIDs;**❌ | You are not authorized to run this command.** {options:{ephemeral:true}}{extraOptions:{interaction:true}}]
   `
