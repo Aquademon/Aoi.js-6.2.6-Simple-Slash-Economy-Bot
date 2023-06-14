@@ -7,7 +7,7 @@ module.exports = {
   $interactionReply[;{newEmbed:
   {author:$userTag:$userAvatar}
   {title:Deleted}
-  {description:> **✅ | Deleted $slashOption[Money] to <@!$slashOption[member]>!}
+  {description:> **✅ | Deleted \`$slashOption[Money]\` to <@!$slashOption[member]>!}
   {color:$getVar[EmbedColor]}
   {footer:Owner only commands}
   {timestamp}
