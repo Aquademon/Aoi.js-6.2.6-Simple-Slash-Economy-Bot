@@ -3,12 +3,13 @@ const Config = require("./Config.js");
 
 /* Setting up AoiClient */
 
-const { AoiClient, LoadCommands} = require("aoi.js");
+const { AoiClient, LoadCommands } = require("aoi.js");
 
 const bot = new AoiClient({
   token: Token,
   prefix: Config.Bot.Prefix,
-  intents: ["MessageContent",
+  intents: [
+    "MessageContent",
     "Guilds",
     "GuildMessages",
     "GuildMembers",
@@ -23,8 +24,10 @@ const bot = new AoiClient({
     "GuildMessageTyping",
     "DirectMessages",
     "DirectMessageReactions",
-    "DirectMessageTyping"],
-    events: ["onInteractionCreate",
+    "DirectMessageTyping",
+  ],
+  events: [
+    "onInteractionCreate",
     "onReactionAdd",
     "onReactionRemove",
     "onLeave",
@@ -61,21 +64,23 @@ const bot = new AoiClient({
     "onThreadCreate",
     "onThreadUpdate",
     "onThreadDelete",
-    "onThreadListSync"],
-    database: {
+    "onThreadListSync",
+  ],
+  database: {
     type: "aoi.db",
     db: require("aoi.db"),
     tables: ["Table_1"],
-    path: "./Database/"
-  }, 
-    mobilePlatform: Config.Status.MobilePlatform
+    path: "./Database/",
+  },
+  mobilePlatform: Config.Status.MobilePlatform,
 });
 
 /* Setting up Express */
 
-const AquaDemon = require("express")
-();AquaDemon.get
-('/', (req, res) => {res.send("AquaDemon Development");});
+const AquaDemon = require("express")();
+AquaDemon.get("/", (req, res) => {
+  res.send("AquaDemon Development");
+});
 AquaDemon.listen(8080);
 
 /* Command loader */
@@ -83,19 +88,17 @@ AquaDemon.listen(8080);
 const loader = new LoadCommands(bot);
 loader.load(bot.cmd, "./Commands");
 
-
-
 loader.setColors({
   walking: ["blink", "dim", "fgWhite"],
   failedWalking: {
     name: ["bright", "fgYellow", "underline"],
- 
-    text: ["bright", "fgRed"]
+
+    text: ["bright", "fgRed"],
   },
   typeError: {
     command: ["bright", "fgYellow"],
     type: ["fgYellow"],
-    text: ["bright", "fgRed"]
+    text: ["bright", "fgRed"],
   },
   failLoad: {
     command: ["bright", "fgMagenta"],
@@ -105,9 +108,8 @@ loader.setColors({
   loaded: {
     command: ["bright", "fgCyan"],
     type: ["bright", "fgBlue"],
-    text: ["bright", "fgGreen"]
+    text: ["bright", "fgGreen"],
   },
- 
 });
 
 /* Custom status */
@@ -116,29 +118,27 @@ bot.status({
   text: Config.Status.Text,
   type: Config.Status.Type,
   status: Config.Status.Status,
-  time: Config.Status.Time
+  time: Config.Status.Time,
 });
 
 /* A few things needed */
 
-const { Util } = require('aoi.js');
-const { parse, createAst, parseChatInputOptions } = require('aoi.parser');
-const {
-    parseFiles,
-    parseExtraOptions
-} = require('aoi.parser/components');
- 
+const { Util } = require("aoi.js");
+const { parse, createAst, parseChatInputOptions } = require("aoi.parser");
+const { parseFiles, parseExtraOptions } = require("aoi.parser/components");
+
 Util.parsers.ErrorHandler = parse;
-   
+
 Util.parsers.FileParser = (data) => {
-    return createAst(data).children.map(parseFiles);
-}
- 
+  return createAst(data).children.map(parseFiles);
+};
+
 Util.parsers.OptionsParser = (data) => {
-    return createAst(data).children.map(parseExtraOptions);
-}
+  return createAst(data).children.map(parseExtraOptions);
+};
 
 /* Variable handler */
 
-bot.variables(require("./Variables.js"))
+bot.variables(require("./Variables.js"));
 
+// This project is coded and licensed by AquaDemon
